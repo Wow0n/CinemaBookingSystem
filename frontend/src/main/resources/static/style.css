@@ -1,0 +1,19 @@
+body {
+    background-color: gray;
+}
+
+img {
+    height: 200px;
+    width: 150px;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+hr {
+    width: 20%;
+    color: black;
+    float: left;
+}

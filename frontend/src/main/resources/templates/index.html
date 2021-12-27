@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<table>
+    <tbody>
+    <tr>
+        <td></td>
+        <td>Tytuł</td>
+        <td>Kategorie</td>
+        <td>Długość</td>
+        <td>Wiek</td>
+        <td>Premiera</td>
+        <td>Opis</td>
+        <td>Rezerwuj</td>
+        <td>Edytuj</td>
+        <td>Usuń</td>
+    </tr>
+    <tr th:each="movie: ${movies}">
+        <td><img th:src="${movie.imageUrl}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.category}"></td>
+        <td th:text="${movie.length}"></td>
+        <td th:text="${movie.age}"></td>
+        <td th:text="${movie.releaseDate}"></td>
+        <td th:text="${movie.description}"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
