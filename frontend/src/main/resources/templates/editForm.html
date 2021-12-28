@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Movie</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<form action="#" method="post" th:action="@{/movie/edit}" th:object="${movie}">
+    <table>
+        <tr>
+            <td><label>ID</label></td>
+            <td><input type="number" th:field="${movie.id}" th:value="${movie.getId()}" readonly></td>
+        </tr>
+        <tr>
+            <td><label>Tytuł</label></td>
+            <td><input type="text" th:field="${movie.title}" th:value="${movie.getTitle()}"></td>
+        </tr>
+        <tr>
+            <td><label>Kategorie</label></td>
+            <td><input type="text" th:field="${movie.category}" th:value="${movie.getCategory()}"></td>
+        </tr>
+        <tr>
+            <td><label>Link do plakatu</label></td>
+            <td><input type="text" th:field="${movie.imageUrl}" th:value="${movie.getImageUrl()}"></td>
+        </tr>
+        <tr>
+            <td><label>Długość</label></td>
+            <td><input type="number" th:field="${movie.length}" th:value="${movie.getLength()}"></td>
+        </tr>
+        <tr>
+            <td><label>Minimalny wiek</label></td>
+            <td><input type="number" th:field="${movie.age}" th:value="${movie.getAge()}"></td>
+        </tr>
+        <tr>
+            <td><label>Data premiery</label></td>
+            <td><input type="date" th:field="${movie.releaseDate}" th:value="${movie.getReleaseDate()}"></td>
+        </tr>
+        <tr>
+            <td><label>Opis</label></td>
+            <td><input type="text" th:field="${movie.description}" th:value="${movie.getDescription()}"></td>
+        </tr>
+        <tr>
+            <input type="submit" value="submit">
+        </tr>
+    </table>
+</form>
+</body>
+</html>

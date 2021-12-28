@@ -1,9 +1,15 @@
 package pl.pjwstk.projekt.frontend.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "movie")
 public class Movie {
     @Id
@@ -28,11 +34,16 @@ public class Movie {
     private Integer age;
 
     @Column(name = "release_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
 
     @Lob
     @Column(name = "description")
     private String description;
+
+    public Movie(Long id) {
+        this.id = id;
+    }
 
     public String getDescription() {
         return description;

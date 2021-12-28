@@ -3,8 +3,7 @@ package pl.pjwstk.projekt.backend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pjwstk.projekt.backend.model.Movie;
 import pl.pjwstk.projekt.backend.services.MovieService;
 
@@ -21,7 +20,19 @@ public class MovieController {
 
     @GetMapping("/movies")
     public ResponseEntity<List<Movie>> getMovies() {
-        List<Movie> movies = service.getMovies();
+        List<Movie> movies = service.getAllMoviesFromRepo();
         return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
+    @GetMapping("/movies/{id}")
+    public ResponseEntity<Movie> getMovie(@PathVariable long id) {
+        Movie movie = service.getMovie(id);
+        return new ResponseEntity<>(movie, HttpStatus.OK);
+    }
+
+    @PutMapping("/movies/edit")
+    public ResponseEntity<Long> updateMovie(@RequestBody Movie movie) {
+        long updateId = service.updateMovie(movie);
+        return new ResponseEntity<>(updateId, HttpStatus.OK);
     }
 }

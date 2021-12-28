@@ -13,7 +13,7 @@
         <td>Tytuł</td>
         <td>Kategorie</td>
         <td>Długość</td>
-        <td>Wiek</td>
+        <td>Ograniczenie</td>
         <td>Premiera</td>
         <td>Opis</td>
         <td>Rezerwuj</td>
@@ -21,16 +21,16 @@
         <td>Usuń</td>
     </tr>
     <tr th:each="movie: ${movies}">
-        <td><img th:src="${movie.imageUrl}"></td>
+        <td class="poster"><img th:src="${movie.imageUrl}"></td>
         <td th:text="${movie.title}"></td>
         <td th:text="${movie.category}"></td>
-        <td th:text="${movie.length}"></td>
-        <td th:text="${movie.age}"></td>
+        <td th:text="${movie.length} + ' min'"></td>
+        <td th:text="'Od: ' + ${movie.age} + ' lat'"></td>
         <td th:text="${movie.releaseDate}"></td>
-        <td th:text="${movie.description}"></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td th:text="${movie.description}" class="description"></td>
+        <td class="options"></td>
+        <td class="options"><a th:href="@{'movies/edit/' + ${movie.id}}">Edytuj</a></td>
+        <td class="options"></td>
     </tr>
     </tbody>
 </table>

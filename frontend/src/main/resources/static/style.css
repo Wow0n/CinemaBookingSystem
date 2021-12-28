@@ -3,13 +3,31 @@ body {
 }
 
 img {
-    height: 200px;
-    width: 150px;
+    height: 375px;
+    width: 250px;
 }
 
 table, tr, td {
+    text-align: center;
     border: 1px solid black;
     border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+}
+
+.poster {
+    width: 250px;
+}
+
+.description {
+    width: 25%;
+    text-align: left;
+}
+
+.options {
+    width: 3%
 }
 
 hr {
