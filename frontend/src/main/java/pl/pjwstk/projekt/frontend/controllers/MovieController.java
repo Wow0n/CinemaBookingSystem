@@ -40,6 +40,7 @@ public class MovieController {
                 .block();
 
         model.addAttribute("movie", movie);
+
         return "editForm";
     }
 
