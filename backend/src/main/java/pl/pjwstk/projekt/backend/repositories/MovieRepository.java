@@ -5,7 +5,7 @@ import pl.pjwstk.projekt.backend.model.Movie;
 
 import java.util.List;
 
-public interface MovieRepository extends JpaRepository<Movie, Integer> {
+public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findAll();
 
     Movie findById(long id);

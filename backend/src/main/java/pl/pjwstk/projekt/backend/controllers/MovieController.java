@@ -41,4 +41,10 @@ public class MovieController {
         long createdId = service.addMovie(movie);
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("movies/delete/{id}")
+    public ResponseEntity<Long> deleteMovie(@PathVariable long id) {
+        long deletedId = service.deleteMovie(id);
+        return new ResponseEntity<>(deletedId, HttpStatus.OK);
+    }
 }

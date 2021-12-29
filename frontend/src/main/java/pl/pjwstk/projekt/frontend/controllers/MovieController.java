@@ -73,4 +73,15 @@ public class MovieController {
 
         return "redirect:/movies";
     }
+
+    @GetMapping("/movie/delete/{id}")
+    public String deleteMovie(@PathVariable long id) {
+        Long movieDelete = webClient.delete()
+                .uri("movies/delete/" + id)
+                .retrieve()
+                .bodyToMono(Long.class)
+                .block();
+
+        return "redirect:/movies";
+    }
 }

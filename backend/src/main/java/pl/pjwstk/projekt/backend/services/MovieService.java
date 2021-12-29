@@ -25,7 +25,7 @@ public class MovieService {
     }
 
     public long updateMovie(Movie movie) {
-        Movie repoMovie = repository.findById(movie.getId());
+        Movie repoMovie = repository.findById((long) movie.getId());
 
         repoMovie.setTitle(movie.getTitle());
         repoMovie.setCategory(movie.getCategory());
@@ -40,5 +40,10 @@ public class MovieService {
 
     public long addMovie(Movie movie) {
         return repository.save(movie).getId();
+    }
+
+    public long deleteMovie(long id) {
+        repository.deleteById(id);
+        return id;
     }
 }
