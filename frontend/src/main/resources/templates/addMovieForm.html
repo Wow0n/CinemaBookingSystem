@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<a href="http://localhost:8080/movies">Wróć na główną</a><br><br>
+
+<form action="#" method="post" th:action="@{/movie/add}" th:object="${movie}">
+    <table>
+        <tr>
+            <td><label>Tytuł</label></td>
+            <td><label>
+                <input type="text" th:field="${movie.title}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Kategorie</label></td>
+            <td><label>
+                <input type="text" th:field="${movie.category}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Link do plakatu</label></td>
+            <td><label>
+                <input type="text" th:field="${movie.imageUrl}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Długość</label></td>
+            <td><label>
+                <input type="number" th:field="${movie.length}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Minimalny wiek</label></td>
+            <td><label>
+                <input type="number" th:field="${movie.age}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Data premiery</label></td>
+            <td><label>
+                <input type="date" th:field="${movie.releaseDate}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Opis</label></td>
+            <td><label>
+                <input type="text" th:field="${movie.description}">
+            </label></td>
+        </tr>
+        <tr>
+            <input type="submit" value="submit">
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -35,4 +35,10 @@ public class MovieController {
         long updateId = service.updateMovie(movie);
         return new ResponseEntity<>(updateId, HttpStatus.OK);
     }
+
+    @PostMapping("movies/add")
+    public ResponseEntity<Long> addNewMovie(@RequestBody Movie movie) {
+        long createdId = service.addMovie(movie);
+        return new ResponseEntity<>(createdId, HttpStatus.CREATED);
+    }
 }

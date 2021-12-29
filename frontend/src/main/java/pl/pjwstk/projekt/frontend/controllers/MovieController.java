@@ -55,4 +55,22 @@ public class MovieController {
 
         return "redirect:/movies";
     }
+
+    @GetMapping("/movies/add")
+    public String displayAddMovieForm(Model model) {
+        model.addAttribute("movie", new Movie());
+        return "addMovieForm";
+    }
+
+    @PostMapping("/movie/add")
+    public String submitAddMovie(@ModelAttribute Movie movie) {
+        Long movieAdd = webClient.post()
+                .uri("movies/add")
+                .body(Mono.just(movie), Movie.class)
+                .retrieve()
+                .bodyToMono(Long.class)
+                .block();
+
+        return "redirect:/movies";
+    }
 }

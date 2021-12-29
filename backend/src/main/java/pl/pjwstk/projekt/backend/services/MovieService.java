@@ -37,4 +37,8 @@ public class MovieService {
 
         return repository.save(repoMovie).getId();
     }
+
+    public long addMovie(Movie movie) {
+        return repository.save(movie).getId();
+    }
 }
