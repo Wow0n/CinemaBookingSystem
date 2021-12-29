@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Programme</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<a href="http://localhost:8080/movies">Wróć na główną</a><br><br>
+
+<form action="#" method="post" th:action="@{/programme/addNew}" th:object="${programme}">
+    <table>
+        <tr th:object="${movies}">
+            <td><label>Film</label></td>
+            <td><label>
+                <select th:field="${programme.movieId}">
+                    <option th:each="movie: ${movies}"
+                            th:value="${movie.getId()}"
+                            th:text="${movie.title}">
+                    </option>
+                </select>
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Data</label></td>
+            <td><label>
+                <input type="date" th:field="${programme.date}">
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Godzina</label></td>
+            <td><label>
+                <input type="time" th:field="${programme.time}" step="1">
+            </label></td>
+        </tr>
+        <tr>
+            <input type="submit" value="submit">
+        </tr>
+    </table>
+</form>
+</body>
+</html>

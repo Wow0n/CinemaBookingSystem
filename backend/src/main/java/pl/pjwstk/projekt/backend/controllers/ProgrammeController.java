@@ -3,9 +3,7 @@ package pl.pjwstk.projekt.backend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.pjwstk.projekt.backend.model.Programme;
 import pl.pjwstk.projekt.backend.services.ProgrammeService;
 
@@ -24,5 +22,11 @@ public class ProgrammeController {
     public ResponseEntity<List<Programme>> getProgrammeOfMovie(@PathVariable long id) {
         List<Programme> programme = service.programmeOfMovie(id);
         return new ResponseEntity<>(programme, HttpStatus.OK);
+    }
+
+    @PostMapping("/programme/add")
+    public ResponseEntity<Long> addNewProgramme(@RequestBody Programme programme) {
+        long createdId = service.addNewProgramme(programme);
+        return new ResponseEntity<>(createdId, HttpStatus.OK);
     }
 }

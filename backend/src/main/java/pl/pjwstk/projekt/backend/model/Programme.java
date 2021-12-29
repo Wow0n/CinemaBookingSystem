@@ -1,8 +1,10 @@
 package pl.pjwstk.projekt.backend.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
@@ -11,15 +13,17 @@ public class Programme {
     @Id
     @Column(name = "id")
     private long id;
-    @Basic
+
     @Column(name = "movie_id")
     private Long movieId;
-    @Basic
+
     @Column(name = "date")
-    private Date date;
-    @Basic
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
     @Column(name = "time")
-    private Time time;
+    @DateTimeFormat(pattern = "HH:mm:ss")
+    private LocalTime time;
 
     public long getId() {
         return id;
@@ -37,19 +41,19 @@ public class Programme {
         this.movieId = movieId;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Time getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 

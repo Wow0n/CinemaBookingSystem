@@ -19,4 +19,8 @@ public class ProgrammeService {
     public List<Programme> programmeOfMovie(long id) {
         return repository.findByMovieId(id);
     }
+
+    public long addNewProgramme(Programme programme) {
+        return repository.save(programme).getId();
+    }
 }
