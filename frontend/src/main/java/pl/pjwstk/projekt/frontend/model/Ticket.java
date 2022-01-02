@@ -1,8 +1,13 @@
 package pl.pjwstk.projekt.frontend.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "ticket")
 public class Ticket {
     @Id
@@ -12,20 +17,4 @@ public class Ticket {
 
     @Column(name = "seat")
     private String seat;
-
-    public String getSeat() {
-        return seat;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

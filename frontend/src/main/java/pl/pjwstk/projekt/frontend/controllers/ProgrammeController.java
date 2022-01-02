@@ -32,7 +32,7 @@ public class ProgrammeController {
         return "movieProgramme";
     }
 
-    @GetMapping("programme/addForm")
+    @GetMapping("movies/programme/addForm")
     public String displayAddProgrammeForm(Model model) {
         Movie[] movies = webClient.get()
                 .uri("/movies")

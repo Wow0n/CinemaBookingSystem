@@ -5,13 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjwstk.projekt.backend.model.Movie;
+import pl.pjwstk.projekt.backend.repositories.projections.MovieProjection;
 import pl.pjwstk.projekt.backend.services.MovieService;
 
 import java.util.List;
 
 @RestController
 public class MovieController {
-    private MovieService service;
+    private final MovieService service;
 
     @Autowired
     public MovieController(MovieService service) {
@@ -19,8 +20,8 @@ public class MovieController {
     }
 
     @GetMapping("/movies")
-    public ResponseEntity<List<Movie>> getMovies() {
-        List<Movie> movies = service.getAllMoviesFromRepo();
+    public ResponseEntity<List<MovieProjection>> getMovies() {
+        List<MovieProjection> movies = service.getAllMoviesFromRepo();
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 

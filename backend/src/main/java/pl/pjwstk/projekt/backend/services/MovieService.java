@@ -4,20 +4,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.pjwstk.projekt.backend.model.Movie;
 import pl.pjwstk.projekt.backend.repositories.MovieRepository;
+import pl.pjwstk.projekt.backend.repositories.projections.MovieProjection;
 
 import java.util.List;
 
 @Service
 public class MovieService {
-    private MovieRepository repository;
+    private final MovieRepository repository;
 
     @Autowired
     public MovieService(MovieRepository repository) {
         this.repository = repository;
     }
 
-    public List<Movie> getAllMoviesFromRepo() {
-        return repository.findAll();
+    public List<MovieProjection> getAllMoviesFromRepo() {
+        return repository.findAllMovies();
     }
 
     public Movie getMovie(long id) {

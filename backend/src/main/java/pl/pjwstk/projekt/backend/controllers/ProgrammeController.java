@@ -5,13 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.pjwstk.projekt.backend.model.Programme;
+import pl.pjwstk.projekt.backend.repositories.projections.ProgrammeProjection;
 import pl.pjwstk.projekt.backend.services.ProgrammeService;
 
 import java.util.List;
 
 @RestController
 public class ProgrammeController {
-    private ProgrammeService service;
+    private final ProgrammeService service;
 
     @Autowired
     public ProgrammeController(ProgrammeService service) {
@@ -19,8 +20,8 @@ public class ProgrammeController {
     }
 
     @GetMapping("/programme/{id}")
-    public ResponseEntity<List<Programme>> getProgrammeOfMovie(@PathVariable long id) {
-        List<Programme> programme = service.programmeOfMovie(id);
+    public ResponseEntity<List<ProgrammeProjection>> getProgrammeOfMovie(@PathVariable long id) {
+        List<ProgrammeProjection> programme = service.programmeOfMovie(id);
         return new ResponseEntity<>(programme, HttpStatus.OK);
     }
 

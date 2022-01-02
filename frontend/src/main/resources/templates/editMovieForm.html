@@ -2,54 +2,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Movie</title>
+    <title>Edit Movie</title>
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 <a href="/movies">Wróć na główną</a><br><br>
 
-<form action="#" method="post" th:action="@{/movie/add}" th:object="${movie}">
+<form action="#" method="post" th:action="@{/movie/edit}" th:object="${movie}">
     <table>
+        <tr>
+            <td><label>ID</label></td>
+            <td><label>
+                <input type="number" th:field="${movie.id}" th:value="${movie.getId()}" readonly>
+            </label></td>
+        </tr>
         <tr>
             <td><label>Tytuł</label></td>
             <td><label>
-                <input type="text" th:field="${movie.title}">
+                <input type="text" th:field="${movie.title}" th:value="${movie.getTitle()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Kategorie</label></td>
             <td><label>
-                <input type="text" th:field="${movie.category}">
+                <input type="text" th:field="${movie.category}" th:value="${movie.getCategory()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Link do plakatu</label></td>
             <td><label>
-                <input type="text" th:field="${movie.imageUrl}">
+                <input type="text" th:field="${movie.imageUrl}" th:value="${movie.getImageUrl()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Długość</label></td>
             <td><label>
-                <input type="number" th:field="${movie.length}">
+                <input type="number" th:field="${movie.length}" th:value="${movie.getLength()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Minimalny wiek</label></td>
             <td><label>
-                <input type="number" th:field="${movie.age}">
+                <input type="number" th:field="${movie.age}" th:value="${movie.getAge()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Data premiery</label></td>
             <td><label>
-                <input type="date" th:field="${movie.releaseDate}">
+                <input type="date" th:field="${movie.releaseDate}" th:value="${movie.getReleaseDate()}">
             </label></td>
         </tr>
         <tr>
             <td><label>Opis</label></td>
             <td><label>
-                <input type="text" th:field="${movie.description}">
+                <input type="text" th:field="${movie.description}" th:value="${movie.getDescription()}">
             </label></td>
         </tr>
         <tr>

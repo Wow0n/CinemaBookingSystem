@@ -41,7 +41,7 @@ public class MovieController {
 
         model.addAttribute("movie", movie);
 
-        return "editForm";
+        return "editMovieForm";
     }
 
     @PostMapping("/movie/edit")

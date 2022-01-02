@@ -6,21 +6,21 @@
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-    <a href="http://localhost:8080/movies">Wróć na główną</a><br><br>
+<a href="/movies">Wróć na główną</a><br><br>
 
-    <table>
-        <tbody>
-        <tr>
-            <td>Dzień</td>
-            <td>Godzina</td>
-            <td>Rezerwuj</td>
-        </tr>
-        <tr th:each="programme: ${programmeList}">
-            <td th:text="${programme.date}"></td>
-            <td th:text="${programme.time}"></td>
-            <td><a href="#">Rezerwuj (wip)</a></td>
-        </tr>
-        </tbody>
-    </table>
+<table>
+    <tbody>
+    <tr>
+        <td>Dzień</td>
+        <td>Godzina</td>
+        <td>Rezerwuj</td>
+    </tr>
+    <tr th:each="programme: ${programmeList}">
+        <td th:text="${programme.date}"></td>
+        <td th:text="${programme.time}"></td>
+        <td><a th:href="@{'reserve/' + ${programme.getMovie()} + '/' + ${programme.getId()}}">Rezerwuj</a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
