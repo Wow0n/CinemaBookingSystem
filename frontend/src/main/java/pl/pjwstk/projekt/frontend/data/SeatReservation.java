@@ -1,4 +1,4 @@
-package pl.pjwstk.projekt.backend.services.Data;
+package pl.pjwstk.projekt.frontend.data;
 
 import lombok.Data;
 

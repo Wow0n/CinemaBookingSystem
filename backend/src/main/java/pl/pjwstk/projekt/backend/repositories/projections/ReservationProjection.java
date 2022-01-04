@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public interface ReservationProjection {
-    Long getProgrammeId();
+    Long getId();
+
+    Long getMovieId();
 
     String getTitle();
 

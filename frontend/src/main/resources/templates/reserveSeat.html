@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seat Reservation</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1 th:text="${reservationInfo.title}"></h1>
+<h2 th:text="${reservationInfo.date} + ' ' + ${reservationInfo.time}"></h2>
+
+<form th:action="@{'/reserve/save'}" th:object="${reservedSeats}" method="post">
+    <table>
+        <tr>
+            <td style="background-color: red"></td>
+            <td>Zajęte miejsca</td>
+        </tr>
+        <tr>
+            <td style="background-color: lime"></td>
+            <td>Twoje miejsca</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <td colspan="11">
+                <p>E K R A N</p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <th:block th:each="number : ${#numbers.sequence(1,7)}">
+                <td th:text="${number}"></td>
+                <td th:if="${number == 3 or number == 7}" rowspan="8">schody</td>
+            </th:block>
+        </tr>
+
+        <tr th:each="row, iStat : ${rows}">
+            <th:block th:each="number: ${#numbers.sequence(1, 7)}">
+                <td th:if="${number == 1}" th:text="${row}"></td>
+                <td>
+                    <input th:field="*{map[__${row + number}__]}" th:disabled="*{map[__${row + number}__]}"
+                           type="checkbox" th:classappend="*{map[__${row + number}__]} ? redAfter : greenAfter"
+                           value="true">
+                </td>
+            </th:block>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <td colspan="2">Proszę podać swoje dane:</td>
+        </tr>
+        <tr>
+            <td><label>Imie:</label></td>
+            <td><label>
+                <input type="text" th:value="${reservationInfo.name}" name="name" required>
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Nazwisko:</label></td>
+            <td><label>
+                <input type="text" th:value="${reservationInfo.surname}" name="surname" required>
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>e-mail:</label></td>
+            <td><label>
+                <input type="email" th:value="${reservationInfo.email}" name="email" required>
+            </label></td>
+        </tr>
+        <tr>
+            <td><label>Numer telefonu:</label></td>
+            <td><label>
+                <input type="text" th:value="${reservationInfo.phone}" name="phone" required>
+            </label></td>
+        </tr>
+    </table>
+    <br>
+    <input type="hidden" th:value="${reservationInfo.id}" name="id">
+    <input type="hidden" th:value="${reservationInfo.movieId}" name="movieId">
+
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

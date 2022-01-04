@@ -6,6 +6,8 @@ import java.time.LocalTime;
 public interface ProgrammeProjection {
     Long getId();
 
+    MovieInfo getMovie();
+
     LocalDate getDate();
 
     LocalTime getTime();

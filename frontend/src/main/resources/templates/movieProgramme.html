@@ -18,7 +18,7 @@
     <tr th:each="programme: ${programmeList}">
         <td th:text="${programme.date}"></td>
         <td th:text="${programme.time}"></td>
-        <td><a th:href="@{'reserve/' + ${programme.getMovie()} + '/' + ${programme.getId()}}">Rezerwuj</a></td>
+        <td><a th:href="@{'reserve/' + ${programme.movie.getId()} + '/' + ${programme.getId()}}">Rezerwuj</a></td>
     </tr>
     </tbody>
 </table>

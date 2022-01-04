@@ -35,3 +35,19 @@ hr {
     color: black;
     float: left;
 }
+
+input[type=checkbox]:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: white;
+}
+
+input[type=checkbox]:checked:before {
+    background-color: lime;
+}
+
+input[type=checkbox].redAfter:checked:before {
+    background-color: red;
+}
