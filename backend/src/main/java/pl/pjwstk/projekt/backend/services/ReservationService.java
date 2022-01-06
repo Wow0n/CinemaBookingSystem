@@ -1,5 +1,7 @@
 package pl.pjwstk.projekt.backend.services;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.pjwstk.projekt.backend.model.Movie;
@@ -18,6 +20,7 @@ import java.util.*;
 
 @Service
 public class ReservationService {
+    private final Logger logger = Logger.getLogger(ReservationService.class);
     ReservationRepository reservationRepo;
     ProgrammeRepository programmeRepo;
     TicketRepository ticketRepo;
@@ -68,6 +71,8 @@ public class ReservationService {
         newReservation.setSurname(info.getSurname());
         newReservation.setEmail(info.getEmail());
         newReservation.setPhone(info.getPhone());
+
+        logger.log(Level.INFO, "New reservation has been added for movieId: " + info.getMovieId());
 
         return reservationRepo.save(newReservation).getId();
     }

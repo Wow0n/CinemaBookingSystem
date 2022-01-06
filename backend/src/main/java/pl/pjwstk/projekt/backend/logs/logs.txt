@@ -1,0 +1,6 @@
+2022-01-06 12:28:53 INFO  - New movie: test has been added
+2022-01-06 12:29:02 INFO  - Movie: test has been updated
+2022-01-06 12:29:16 INFO  - New movie screening has been added for movieId: 11
+2022-01-06 12:29:38 INFO  - New ticket was bought
+2022-01-06 12:29:38 INFO  - New reservation has been added for movieId: 11
+2022-01-06 12:30:06 INFO  - Movie: test has been deleted

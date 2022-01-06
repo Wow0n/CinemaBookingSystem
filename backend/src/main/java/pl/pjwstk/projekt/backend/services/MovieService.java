@@ -1,6 +1,10 @@
 package pl.pjwstk.projekt.backend.services;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import pl.pjwstk.projekt.backend.model.Movie;
 import pl.pjwstk.projekt.backend.repositories.MovieRepository;
@@ -10,6 +14,7 @@ import java.util.List;
 
 @Service
 public class MovieService {
+    private final Logger logger = Logger.getLogger(MovieService.class);
     private final MovieRepository repository;
 
     @Autowired
@@ -17,6 +22,7 @@ public class MovieService {
         this.repository = repository;
     }
 
+    @Cacheable(value = "allMovies")
     public List<MovieProjection> getAllMoviesFromRepo() {
         return repository.findAllMovies();
     }
@@ -25,6 +31,7 @@ public class MovieService {
         return repository.findById(id);
     }
 
+    @CacheEvict(value = "allMovies", allEntries = true)
     public long updateMovie(Movie movie) {
         Movie repoMovie = repository.findById((long) movie.getId());
 
@@ -36,14 +43,22 @@ public class MovieService {
         repoMovie.setReleaseDate(movie.getReleaseDate());
         repoMovie.setDescription(movie.getDescription());
 
+        logger.log(Level.INFO, "Movie: " + movie.getTitle() + " has been updated");
+
         return repository.save(repoMovie).getId();
     }
 
+    @CacheEvict(value = "allMovies", allEntries = true)
     public long addMovie(Movie movie) {
+        logger.log(Level.INFO, "New movie: " + movie.getTitle() + " has been added");
+
         return repository.save(movie).getId();
     }
 
+    @CacheEvict(value = "allMovies", allEntries = true)
     public long deleteMovie(long id) {
+        logger.log(Level.INFO, "Movie: " + repository.findById(id).getTitle() + " has been deleted");
+
         repository.deleteById(id);
         return id;
     }

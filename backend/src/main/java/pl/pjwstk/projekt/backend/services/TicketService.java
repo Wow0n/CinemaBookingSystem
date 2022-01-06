@@ -1,5 +1,7 @@
 package pl.pjwstk.projekt.backend.services;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.pjwstk.projekt.backend.model.Ticket;
@@ -14,6 +16,7 @@ import static java.lang.Boolean.TRUE;
 
 @Service
 public class TicketService {
+    private final Logger logger = Logger.getLogger(TicketService.class);
     TicketRepository repository;
 
     @Autowired
@@ -27,6 +30,7 @@ public class TicketService {
 
         ticket.setSeat(String.join(",", seats));
 
+        logger.log(Level.INFO, "New ticket was bought");
         return repository.save(ticket).getId();
     }
 
