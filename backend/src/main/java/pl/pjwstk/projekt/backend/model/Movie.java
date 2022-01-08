@@ -2,6 +2,7 @@ package pl.pjwstk.projekt.backend.model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "movie")
 public class Movie {
     @Id
@@ -50,4 +52,19 @@ public class Movie {
     @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
     private List<Programme> repertoires;
+
+    public Movie(Long id, String title, String category, String imageUrl, Integer length, Integer age, LocalDate releaseDate, String description) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.imageUrl = imageUrl;
+        this.length = length;
+        this.age = age;
+        this.releaseDate = releaseDate;
+        this.description = description;
+    }
+
+    public Movie(Long id) {
+        this.id = id;
+    }
 }

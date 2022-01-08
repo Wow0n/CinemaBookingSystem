@@ -20,7 +20,7 @@ public class ProgrammeService {
         this.repository = repository;
     }
 
-    public List<ProgrammeProjection> programmeOfMovie(long id) {
+    public List<ProgrammeProjection> getProgrammeOfMovie(long id) {
         return repository.findByMovieId(id);
     }
 

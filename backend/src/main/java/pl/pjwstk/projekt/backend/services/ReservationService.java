@@ -34,11 +34,11 @@ public class ReservationService {
         this.movieRepo = movieRepo;
     }
 
-    public ReservationProjection getReservations(Movie movie, Programme programme) {
+    public ReservationProjection getReservation(Movie movie, Programme programme) {
         return reservationRepo.getReservationData(movie, programme);
     }
 
-    public Reserve reserve(Programme programme) {
+    public Reserve getReservedSeatsForProgramme(Programme programme) {
         Reserve reserve = new Reserve();
         SeatReservation seatReservation = new SeatReservation();
 

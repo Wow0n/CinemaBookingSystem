@@ -11,6 +11,15 @@ public interface ProgrammeProjection {
     LocalDate getDate();
 
     LocalTime getTime();
+
+    //setters for test
+    void setId(Long id);
+
+    void setMovie(MovieInfo info);
+
+    void setDate(LocalDate date);
+
+    void setTime(LocalTime time);
 }
 
 

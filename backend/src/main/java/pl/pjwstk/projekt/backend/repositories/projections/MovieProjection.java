@@ -18,4 +18,20 @@ public interface MovieProjection {
     LocalDate getReleaseDate();
 
     String getDescription();
+
+    //    setters for test
+
+    void setId(Long id);
+
+    void setTitle(String title);
+
+    void setCategory(String category);
+
+    void setImageUrl(String imageUrl);
+
+    void setLength(int length);
+
+    void setReleaseDate(LocalDate releaseDate);
+
+    void setDescription(String description);
 }

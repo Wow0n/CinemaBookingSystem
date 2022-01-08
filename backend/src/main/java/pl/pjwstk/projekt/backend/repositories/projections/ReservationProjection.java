@@ -13,4 +13,15 @@ public interface ReservationProjection {
     LocalDate getDate();
 
     LocalTime getTime();
+
+    //    setters for test
+    void setId(Long id);
+
+    void setMovieId(Long movieId);
+
+    void setTitle(String title);
+
+    void setDate(LocalDate date);
+
+    void setTime(LocalTime time);
 }

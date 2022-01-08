@@ -55,7 +55,8 @@
         <tr>
             <td><label>Opis</label></td>
             <td><label>
-                <input type="text" th:field="${movie.description}" th:value="${movie.getDescription()}">
+                <textarea cols="40" rows="5" th:field="${movie.description}"
+                          th:value="${movie.getDescription()}"></textarea>
             </label></td>
         </tr>
         <tr>
