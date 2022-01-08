@@ -1,6 +1,7 @@
 package pl.pjwstk.projekt.backend.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "programme")
 public class Programme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +35,11 @@ public class Programme {
 
     @OneToMany(mappedBy = "programme", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Reservation> reservations;
+
+    public Programme(long id, LocalDate date, LocalTime time, Movie movie) {
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.movie = movie;
+    }
 }

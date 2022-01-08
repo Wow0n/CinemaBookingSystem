@@ -21,7 +21,7 @@ public class ProgrammeController {
 
     @GetMapping("/programme/{id}")
     public ResponseEntity<List<ProgrammeProjection>> getProgrammeOfMovie(@PathVariable long id) {
-        List<ProgrammeProjection> programme = service.programmeOfMovie(id);
+        List<ProgrammeProjection> programme = service.getProgrammeOfMovie(id);
         return new ResponseEntity<>(programme, HttpStatus.OK);
     }
 

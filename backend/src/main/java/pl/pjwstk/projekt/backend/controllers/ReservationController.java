@@ -22,13 +22,13 @@ public class ReservationController {
 
     @GetMapping("reservation/{movie}/{programme}")
     public ResponseEntity<ReservationProjection> getAllReservationsOfProgramme(@PathVariable Movie movie, @PathVariable Programme programme) {
-        ReservationProjection reservations = service.getReservations(movie, programme);
+        ReservationProjection reservations = service.getReservation(movie, programme);
         return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 
     @GetMapping("reservation/seats/{programme}")
     public ResponseEntity<Reserve> getReservedSeats(@PathVariable Programme programme) {
-        Reserve reserve = service.reserve(programme);
+        Reserve reserve = service.getReservedSeatsForProgramme(programme);
         return new ResponseEntity<>(reserve, HttpStatus.OK);
     }
 
