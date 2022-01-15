@@ -1,9 +1,6 @@
 package pl.pjwstk.projekt.database.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -46,10 +43,14 @@ public class Movie {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "movie", orphanRemoval = true)
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "movie", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Reservation> reservations;
 
-    @OneToMany(mappedBy = "movie", orphanRemoval = true)
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "movie", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Programme> repertoires;
 
     public Movie(Long id, String title, String category, String imageUrl, Integer length, Integer age, LocalDate releaseDate, String description) {

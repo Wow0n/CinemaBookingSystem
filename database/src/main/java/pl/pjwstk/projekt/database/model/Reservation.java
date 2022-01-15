@@ -19,11 +19,11 @@ public class Reservation {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
 

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Movies</title>
     <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<a href="/movies/add">Dodaj film</a><br>
-<a href="/movies/programme/addForm">Dodaj projekcje</a><br><br>
+<p sec:authorize="!isAuthenticated()">
+    <a href="/login">Zaloguj się</a>
+</p>
+
+<p sec:authorize="isAuthenticated()">
+    <a href="/logout">Wyloguj</a>
+</p>
+
+<p sec:authorize="hasRole('admin')">
+    <a href="/movies/add">Dodaj film</a><br>
+    <a href="/movies/programme/addForm">Dodaj projekcje</a>
+</p>
 <table>
     <tbody>
     <tr>
@@ -19,11 +29,15 @@
         <td>Premiera</td>
         <td>Opis</td>
         <td>Rezerwuj</td>
-        <td>Edytuj</td>
-        <td>Usuń</td>
+
+        <div sec:authorize="hasRole('admin')">
+            <td>Edytuj</td>
+            <td>Usuń</td>
+        </div>
     </tr>
     <tr th:each="movie: ${movies}">
-        <td class="poster"><img th:src="${movie.imageUrl}" onerror="this.src='https://via.placeholder.com/250x375';">
+        <td class="poster"><img th:src="${movie.imageUrl}" onerror="this.src='https://via.placeholder.com/250x375';"
+                                alt="poster">
         </td>
         <td th:text="${movie.title}"></td>
         <td th:text="${movie.category}"></td>
@@ -32,8 +46,12 @@
         <td th:text="${movie.releaseDate}"></td>
         <td th:text="${movie.description}" class="description"></td>
         <td class="options"><a th:href="@{'movies/programme/' + ${movie.id}}">Rezerwuj</a></td>
-        <td class="options"><a th:href="@{'movies/edit/' + ${movie.id}}">Edytuj</a></td>
-        <td class="options"><a th:href="@{'movie/delete/' + ${movie.id}}">Usun</a></td>
+
+        <div sec:authorize="hasRole('admin')">
+            <td class="options"><a th:href="@{'movies/edit/' + ${movie.id}}">Edytuj</a></td>
+            <td class="options"><a th:href="@{'movie/delete/' + ${movie.id}}">Usun</a></td>
+        </div>
+
     </tr>
     </tbody>
 </table>

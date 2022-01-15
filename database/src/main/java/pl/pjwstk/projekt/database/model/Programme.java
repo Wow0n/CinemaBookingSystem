@@ -29,11 +29,11 @@ public class Programme {
     @DateTimeFormat(pattern = "HH:mm:ss")
     private LocalTime time;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
 
-    @OneToMany(mappedBy = "programme", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "programme", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private List<Reservation> reservations;
 
     public Programme(long id, LocalDate date, LocalTime time, Movie movie) {
