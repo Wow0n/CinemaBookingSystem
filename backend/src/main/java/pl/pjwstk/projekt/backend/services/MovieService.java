@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.repositories.MovieRepository;
-import pl.pjwstk.projekt.backend.repositories.projections.MovieProjection;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.projections.MovieProjection;
+import pl.pjwstk.projekt.database.repositories.MovieRepository;
 
 import java.util.List;
 

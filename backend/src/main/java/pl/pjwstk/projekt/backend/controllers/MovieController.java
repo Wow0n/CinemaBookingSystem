@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.repositories.projections.MovieProjection;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.projections.MovieProjection;
 import pl.pjwstk.projekt.backend.services.MovieService;
 
 import java.util.List;

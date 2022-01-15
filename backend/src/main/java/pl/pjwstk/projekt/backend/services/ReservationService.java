@@ -4,17 +4,17 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.model.Programme;
-import pl.pjwstk.projekt.backend.model.Reservation;
-import pl.pjwstk.projekt.backend.repositories.MovieRepository;
-import pl.pjwstk.projekt.backend.repositories.ProgrammeRepository;
-import pl.pjwstk.projekt.backend.repositories.ReservationRepository;
-import pl.pjwstk.projekt.backend.repositories.TicketRepository;
-import pl.pjwstk.projekt.backend.repositories.projections.ReservationProjection;
-import pl.pjwstk.projekt.backend.services.data.ReservationInfo;
-import pl.pjwstk.projekt.backend.services.data.Reserve;
-import pl.pjwstk.projekt.backend.services.data.SeatReservation;
+import pl.pjwstk.projekt.database.data.ReservationInfo;
+import pl.pjwstk.projekt.database.data.Reserve;
+import pl.pjwstk.projekt.database.data.SeatReservation;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.model.Programme;
+import pl.pjwstk.projekt.database.model.Reservation;
+import pl.pjwstk.projekt.database.projections.ReservationProjection;
+import pl.pjwstk.projekt.database.repositories.MovieRepository;
+import pl.pjwstk.projekt.database.repositories.ProgrammeRepository;
+import pl.pjwstk.projekt.database.repositories.ReservationRepository;
+import pl.pjwstk.projekt.database.repositories.TicketRepository;
 
 import java.util.*;
 
@@ -72,7 +72,7 @@ public class ReservationService {
         newReservation.setEmail(info.getEmail());
         newReservation.setPhone(info.getPhone());
 
-        logger.log(Level.INFO, "New reservation has been added for movieId: " + info.getMovieId());
+        logger.log(Level.INFO, "New reservation has been added for movie: " + movieRepo.getById(info.getMovieId()).getTitle());
 
         return reservationRepo.save(newReservation).getId();
     }

@@ -4,9 +4,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.pjwstk.projekt.backend.model.Programme;
-import pl.pjwstk.projekt.backend.repositories.ProgrammeRepository;
-import pl.pjwstk.projekt.backend.repositories.projections.ProgrammeProjection;
+import pl.pjwstk.projekt.database.model.Programme;
+import pl.pjwstk.projekt.database.projections.ProgrammeProjection;
+import pl.pjwstk.projekt.database.repositories.ProgrammeRepository;
 
 import java.util.List;
 

@@ -9,3 +9,19 @@
 2022-01-08 12:24:47 INFO  - New ticket was bought
 2022-01-08 12:24:47 INFO  - New reservation has been added for movieId: 12
 2022-01-08 12:24:58 INFO  - Movie: test has been deleted
+2022-01-15 10:51:06 INFO  - New movie: test has been added
+2022-01-15 10:51:18 INFO  - Movie: test has been updated
+2022-01-15 10:52:41 INFO  - Movie: test has been updated
+2022-01-15 10:52:51 INFO  - New movie screening has been added for movieId: 15
+2022-01-15 10:55:19 INFO  - New movie screening has been added for movieId: 15
+2022-01-15 10:58:44 INFO  - New ticket was bought
+2022-01-15 10:58:44 INFO  - New reservation has been added for movieId: 15
+2022-01-15 10:58:55 INFO  - Movie: test has been deleted
+2022-01-15 11:24:29 INFO  - New movie: test has been added
+2022-01-15 11:24:36 INFO  - Movie: test has been updated
+2022-01-15 11:26:11 INFO  - New ticket was bought
+2022-01-15 11:26:11 INFO  - New reservation has been added for movieId: 1
+2022-01-15 11:26:31 INFO  - New movie screening has been added for movieId: 16
+2022-01-15 11:26:42 INFO  - Movie: test has been deleted
+2022-01-15 11:28:15 INFO  - New ticket was bought
+2022-01-15 11:28:15 INFO  - New reservation has been added for movieId: Diuna

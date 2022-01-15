@@ -5,9 +5,9 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.repositories.MovieRepository;
 import pl.pjwstk.projekt.backend.bases.BaseMovieServiceTest;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.repositories.MovieRepository;
 import pl.pjwstk.projekt.backend.services.MovieService;
 
 import java.time.LocalDate;

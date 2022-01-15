@@ -5,10 +5,10 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.model.Programme;
+import pl.pjwstk.projekt.database.repositories.ProgrammeRepository;
 import pl.pjwstk.projekt.backend.bases.BaseProgrammeServiceTest;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.model.Programme;
-import pl.pjwstk.projekt.backend.repositories.ProgrammeRepository;
 import pl.pjwstk.projekt.backend.services.ProgrammeService;
 
 import java.time.LocalDate;

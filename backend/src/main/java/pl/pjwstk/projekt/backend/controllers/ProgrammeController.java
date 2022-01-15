@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.pjwstk.projekt.backend.model.Programme;
-import pl.pjwstk.projekt.backend.repositories.projections.ProgrammeProjection;
+import pl.pjwstk.projekt.database.model.Programme;
+import pl.pjwstk.projekt.database.projections.ProgrammeProjection;
 import pl.pjwstk.projekt.backend.services.ProgrammeService;
 
 import java.util.List;

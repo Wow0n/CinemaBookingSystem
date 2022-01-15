@@ -3,8 +3,8 @@ package pl.pjwstk.projekt.backend.bases;
 import org.junit.Before;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
-import pl.pjwstk.projekt.backend.model.Movie;
-import pl.pjwstk.projekt.backend.repositories.projections.MovieProjection;
+import pl.pjwstk.projekt.database.model.Movie;
+import pl.pjwstk.projekt.database.projections.MovieProjection;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

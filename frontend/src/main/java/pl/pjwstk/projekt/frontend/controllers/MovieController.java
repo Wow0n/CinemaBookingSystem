@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.reactive.function.client.WebClient;
-import pl.pjwstk.projekt.frontend.model.Movie;
+import pl.pjwstk.projekt.database.model.Movie;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
