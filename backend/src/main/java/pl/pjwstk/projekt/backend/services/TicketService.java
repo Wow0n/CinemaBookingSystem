@@ -17,7 +17,7 @@ import static java.lang.Boolean.TRUE;
 @Service
 public class TicketService {
     private final Logger logger = Logger.getLogger(TicketService.class);
-    TicketRepository repository;
+    private final TicketRepository repository;
 
     @Autowired
     public TicketService(TicketRepository repository) {

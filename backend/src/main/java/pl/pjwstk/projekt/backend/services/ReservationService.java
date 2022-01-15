@@ -16,22 +16,25 @@ import pl.pjwstk.projekt.database.repositories.ProgrammeRepository;
 import pl.pjwstk.projekt.database.repositories.ReservationRepository;
 import pl.pjwstk.projekt.database.repositories.TicketRepository;
 
+import javax.mail.MessagingException;
 import java.util.*;
 
 @Service
 public class ReservationService {
     private final Logger logger = Logger.getLogger(ReservationService.class);
-    ReservationRepository reservationRepo;
-    ProgrammeRepository programmeRepo;
-    TicketRepository ticketRepo;
-    MovieRepository movieRepo;
+    private final ReservationRepository reservationRepo;
+    private final ProgrammeRepository programmeRepo;
+    private final TicketRepository ticketRepo;
+    private final MovieRepository movieRepo;
+    private final MailService mailService;
 
     @Autowired
-    public ReservationService(ReservationRepository reservationRepo, ProgrammeRepository programmeRepo, TicketRepository ticketRepo, MovieRepository movieRepo) {
+    public ReservationService(ReservationRepository reservationRepo, ProgrammeRepository programmeRepo, TicketRepository ticketRepo, MovieRepository movieRepo, MailService mailService) {
         this.reservationRepo = reservationRepo;
         this.programmeRepo = programmeRepo;
         this.ticketRepo = ticketRepo;
         this.movieRepo = movieRepo;
+        this.mailService = mailService;
     }
 
     public ReservationProjection getReservation(Movie movie, Programme programme) {
@@ -72,7 +75,20 @@ public class ReservationService {
         newReservation.setEmail(info.getEmail());
         newReservation.setPhone(info.getPhone());
 
-        logger.log(Level.INFO, "New reservation has been added for movie: " + movieRepo.getById(info.getMovieId()).getTitle());
+        String movieTitle = movieRepo.getById(info.getMovieId()).getTitle();
+
+        logger.log(Level.INFO, "New reservation has been added for movie: " + movieTitle);
+
+        try {
+            mailService.sendMail(
+                    info.getEmail(),
+                    "Potwierdzenie rezerwacji biletu na film " + movieTitle,
+                    "Rezerwacja na: " + info.getName() + " " + info.getSurname()
+                            + "<br>Zarezerwowane miejsca: " + ticketRepo.getById(newTicketId).getSeat()
+            );
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
 
         return reservationRepo.save(newReservation).getId();
     }

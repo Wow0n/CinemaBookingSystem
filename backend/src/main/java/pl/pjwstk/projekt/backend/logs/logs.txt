@@ -25,3 +25,13 @@
 2022-01-15 11:26:42 INFO  - Movie: test has been deleted
 2022-01-15 11:28:15 INFO  - New ticket was bought
 2022-01-15 11:28:15 INFO  - New reservation has been added for movieId: Diuna
+2022-01-15 11:52:03 INFO  - New ticket was bought
+2022-01-15 11:52:03 INFO  - New reservation has been added for movie: Nie czas umierać
+2022-01-15 12:17:39 INFO  - New ticket was bought
+2022-01-15 12:17:39 INFO  - New reservation has been added for movie: Diuna
+2022-01-15 12:20:20 INFO  - New ticket was bought
+2022-01-15 12:20:20 INFO  - New reservation has been added for movie: Nie czas umierać
+2022-01-15 12:21:06 INFO  - New ticket was bought
+2022-01-15 12:21:06 INFO  - New reservation has been added for movie: Nie czas umierać
+2022-01-15 12:57:05 INFO  - New ticket was bought
+2022-01-15 12:57:05 INFO  - New reservation has been added for movie: Nie czas umierać
