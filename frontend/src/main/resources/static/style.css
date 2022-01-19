@@ -1,5 +1,37 @@
 body {
-    background-color: gray;
+    background-color: #666666;
+    width: 95%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#form-table-movie-add {
+    margin: auto;
+    width: 40%;
+}
+
+#form-table-movie-edit {
+    margin: auto;
+    width: 50%;
+}
+
+#form-table-programme {
+    margin: auto;
+    width: 20%;
+}
+
+#form {
+    text-align: center;
+}
+
+input[type=text], input[type=number] {
+    width: 100%;
+}
+
+.screening-room, .screening-room td, .screening-room tr {
+    border-collapse: collapse;
+    border: 1px black solid;
 }
 
 img {
@@ -9,16 +41,10 @@ img {
 
 table, tr, td {
     text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
 }
 
 td {
     padding: 5px;
-}
-
-.poster {
-    width: 250px;
 }
 
 .description {
@@ -39,7 +65,7 @@ hr {
 input[type=checkbox]:before {
     content: "";
     width: 15px;
-    height: 15px;
+    height: 18px;
     display: inline-block;
     background-color: white;
 }
