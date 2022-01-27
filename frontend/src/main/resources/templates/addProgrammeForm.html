@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +31,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Data</span>
                     <input class="form-control" type="date" th:field="${programme.date}"
-                           th:min="${#dates.format(execInfo.now.time, 'yyyy-MM-dd')}" required>
+                           th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" required>
                 </div>
             </td>
         </tr>
@@ -40,7 +39,7 @@
             <td>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon2">Godzina</span>
-                    <input class="form-control" type="time" th:field="${programme.time}" step="1" required>
+                    <input class="form-control" type="time" th:field="${programme.time}" step="60" required>
                 </div>
             </td>
         </tr>

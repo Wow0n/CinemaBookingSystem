@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -57,7 +56,15 @@
         <tr>
             <td>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon6">Opis</span>
+                    <span class="input-group-text" id="basic-addon6">Data premiery</span>
+                    <input class="form-control" type="date" th:field="${movie.releaseDate}" required>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon7">Opis</span>
                     <textarea class="form-control" cols="70" rows="7" th:field="${movie.description}" required></textarea>
                 </div>
             </td>
