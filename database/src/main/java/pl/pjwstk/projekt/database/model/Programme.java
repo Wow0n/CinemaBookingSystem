@@ -26,7 +26,7 @@ public class Programme {
     private LocalDate date;
 
     @Column(name = "time")
-    @DateTimeFormat(pattern = "HH:mm:ss")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime time;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

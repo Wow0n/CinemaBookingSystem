@@ -85,7 +85,7 @@ hr {
 input[type=checkbox]:before {
     content: "";
     width: 15px;
-    height: 18px;
+    height: 19px;
     display: inline-block;
     background-color: white;
 }
